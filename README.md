@@ -15,8 +15,8 @@ Antes de mais nada, adicione o plugin à pasta de plugins e, em seguida, siga as
 | --- | --- |
 | prender.prender | A permissão para executar o comando, em breve uma configuração. |
 | /prender setar | Especifique o local da prisão. |
-| /prender <Jogador> <Tempo> | Especifique o Jogador e o tempo em segundos da prisão. |
-| /prender liberar <Jogador> | Liberte um Jogador da prisão. |
+| /prender *Jogador* *Tempo* | Especifique o Jogador e o tempo em segundos da prisão. |
+| /prender liberar *Jogador* | Liberte um Jogador da prisão. |
 
 ## Como o plugin funciona?
 
