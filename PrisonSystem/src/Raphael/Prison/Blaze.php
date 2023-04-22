@@ -17,7 +17,7 @@ use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\level\Position;
-require_once("Update10.php")
+require_once("Update10.php");
 
 class Blaze extends PluginBase implements Listener {
 
@@ -131,7 +131,7 @@ $jogador->teleport($pos, 0, 0);
 
 private function prenderJogador(Player $jogador, int $tempoUnix) {
     if (count($this->jogadoresPresos) === 0) {
-        $this->getScheduler()->scheduleRepeatingTask(new VerificarTempoTask($this), 20 * 60);
+        $this->verificarTempoTaskId = $this->getScheduler()->scheduleRepeatingTask(new VerificarTempoTask($this), 20 * 60)->getTaskId();
     }
     $this->jogadoresPresos[$jogador->getName()] = ["tempo" => $tempoUnix, "inicio" => time()];
     $this->data->set("jogadoresPresos", $this->jogadoresPresos);
@@ -146,7 +146,7 @@ $jogador->teleport($pos, 0, 0);
 public function verificarPresos() {
     if (count($this->jogadoresPresos) === 0) {
         $this->getLogger()->info("§cNão há jogadores presos, desativando procura...");
-        $this->getScheduler()->cancelTask((int) $this->verificarTempoTaskId);
+        $this->getScheduler()->cancelTask($this->verificarTempoTaskId);
 
         return;
         }
