@@ -17,6 +17,7 @@ use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\level\Position;
+require_once("Update10.php")
 
 class Blaze extends PluginBase implements Listener {
 
@@ -26,6 +27,7 @@ class Blaze extends PluginBase implements Listener {
     private $verificarTempoTaskId = null;
 
     public function onEnable() {
+        UpdateVersion1($this);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getLogger()->info("§ePrisonSystem habilitado!");
         $this->saveResource("data.yml");
