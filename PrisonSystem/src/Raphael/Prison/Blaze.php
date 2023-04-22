@@ -29,7 +29,7 @@ class Blaze extends PluginBase implements Listener {
     public function onEnable() {
         UpdateVersion1($this);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getLogger()->info("§ePrisonSystem habilitado!");
+        $this->getLogger()->info("§eAutoClicker habilitado! @ Raphael S.");
         $this->saveResource("data.yml");
         $this->data = new Config($this->getDataFolder() . "data.yml", Config::YAML);
         $this->jogadoresPresos = $this->data->get("jogadoresPresos", []);
@@ -43,6 +43,10 @@ class Blaze extends PluginBase implements Listener {
 public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
     switch(strtolower($command->getName())) {
         case "prender":
+                    if (!$sender->hasPermission("prender.prender")) {
+                    $sender->sendMessage("§cVocê não pode executar esse comando.");
+                    return false;
+                }
             if(count($args) >= 2) {
                 $jogador = $this->getServer()->getPlayer($args[0]);
                 if($jogador instanceof Player) {
