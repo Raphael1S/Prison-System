@@ -29,7 +29,7 @@ class Blaze extends PluginBase implements Listener {
     public function onEnable() {
         UpdateVersion1($this);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        $this->getLogger()->info("§eAutoClicker habilitado! @ Raphael S.");
+        $this->getLogger()->info("§ePrisonSystem habilitado! @ Raphael S.");
         $this->saveResource("data.yml");
         $this->data = new Config($this->getDataFolder() . "data.yml", Config::YAML);
         $this->jogadoresPresos = $this->data->get("jogadoresPresos", []);
